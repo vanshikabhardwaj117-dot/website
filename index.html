@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirPods Max - Sound Redefined</title>
+    <style>
+        /* 🌍 Reset & Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19; /* Ultra Dark Premium Navy */
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /*  NAVBAR STYLE */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 35px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d2ff;
+        }
+
+        /* 🚀 HERO SECTION (MAIN ADVERTISEMENT) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 150px 8% 50px 8%;
+            flex: 1;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 40%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(to right, #00d2ff, #00fff0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        /* 🎯 INTERACTIVE BUTTONS */
+        .btn-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            color: white;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 210, 255, 0.6);
+        }
+
+        .btn-features {
+            background: transparent;
+            color: #00d2ff;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: 2px solid #00d2ff;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-features:hover {
+            background: rgba(0, 210, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* 🖼️ IMAGE PRODUCT CONTAINER */
+        .hero-image img {
+            width: 450px;
+            filter: drop-shadow(0 20px 50px rgba(0, 210, 255, 0.2));
+            animation: float 4s ease-in-out infinite; /* हवा में तैरने वाला एनीमेशन */
+        }
+
+        /* ✨ FLOATING ANIMATION LOGIC */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        /* 🎴 FEATURES SECTION GRID */
+        .features-section {
+            padding: 60px 8%;
+            background-color: #080b11;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #111827;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #1f2937;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* कार्ड पर माउस ले जाने पर चमकता हुआ ग्लो आएगा */
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #00d2ff;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #00d2ff;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }/* ✉️ CONTACT FORM SECTION */
+        .contact-section {
+            padding: 60px 8%;
+            background-color: #0b0f19;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #111827;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #1f2937;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #00d2ff;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            color: white;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.5);
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- 🌐 Header Section -->
+    <header>
+        <div class="logo">APPLE LAB</div>
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#specs">Specs</a>
+            <a href="#stores">Find a Store</a>
+        </nav>
+    </header>
+
+    <!-- 🚀 Main Advertisement Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>AirPods Max <br><span>Sound Redefined.</span></h1>
+            <p>Experience the perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods. The ultimate personal listening experience is here.</p>
+            
+            <div class="btn-container">
+                <button class="btn-buy" id="buy-btn">Buy Now</button>
+                <button class="btn-features">Learn Features</button>
+            </div>
+        </div>
+
+        <!-- 🖼️ Product Image (Perfect Matching Link) -->
+        <div class="hero-image">
+            <img src="airpods max.jpg" alt="AirPods Max">
+        </div>
+    </section><!-- 🎴 New Features Section -->
+    <section class="features-section" id="specs">
+        <div class="features-grid">
+            
+            <!-- Card 1 -->
+            <div class="card">
+                <h3>Active Noise Cancellation 🤫</h3>
+                <p>Blocks outside noise, so you can fully immerse yourself in your favorite music or work without any distractions.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <h3>20-Hour Battery Life 🔋</h3>
+                <p>Keep the music going all day and night with up to 20 hours of high-fidelity audio on a single charge.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <h3>Spatial Audio 🎧</h3>
+                <p>Theater-like sound that surrounds you completely, creating an unbelievable personal listening experience.</p>
+            </div>
+
+        </div>
+    </section>
+    <!-- ✉️ Contact Form Section -->
+    <section class="contact-section">
+        <h2>Pre-Order & Inquiry Form</h2>
+        <form class="contact-form" id="inquiryForm">
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" id="userName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label>Your Email</label>
+                <input type="email" id="userEmail" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label>Message/Inquiry</label>
+                <textarea id="userMessage" rows="4" placeholder="How can we help you?"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit Inquiry</button>
+        </form>
+    </section>
+
+    <!-- 🧠 Advanced JavaScript for Form Validation -->
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function(event) {
+            // Prevents the page from refreshing automatically
+            event.preventDefault(); 
+            
+            // Getting values from input fields
+            const name = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const message = document.getElementById('userMessage').value.trim();
+
+            // 🛠️ JavaScript Validation Logic
+            if (name === "" || email === "" || message === "") {
+                alert("❌ Please fill in all the fields before submitting!");
+            } else if (!email.includes("@")) {
+                alert("❌ Please enter a valid email address containing '@'!");
+            } else {
+                alert(`🎉 Thank you, ${name}! Your inquiry for AirPods Max has been received successfully.`);
+                // Resets the form fields
+                this.reset(); 
+            }
+        });
+    </script>
+
+    <!-- 🧠 JavaScript for Interactive Alert -->
+    <script>
+        document.getElementById('buy-btn').addEventListener('click', () => {
+            alert('🛍️ Redirecting you to the secure Apple checkout store...');
+        });
+    </script>
+
+</body>
+</html>
